@@ -42,8 +42,8 @@ public class ConsumerApplication {
 
 	@Bean
 	RSocketRequester requester(RSocketStrategies rSocketStrategies) {
-		return RSocketRequester.create(this.rSocket(),
-			MimeTypeUtils.APPLICATION_JSON, rSocketStrategies);
+		return RSocketRequester.wrap(rSocket(), MimeTypeUtils.APPLICATION_JSON,
+				rSocketStrategies);
 	}
 }
 
